@@ -59,7 +59,7 @@ public class ApplicationController {
         return ResponseEntity.ok(
             applicationService.findAll().stream()
                 .map(app -> maskPiiIfOfficer(applicationService.toDto(app), auth))
-                .collect(Collectors.toList())
+                .collect(Stream.toList())
         );
     }
 
@@ -81,7 +81,7 @@ public class ApplicationController {
         LoanApplication app = applicationService.findById(id);
         LoanApplicationDTO dto = applicationService.toDto(app);
         // LAB 1 FIX: uncomment the line below after adding @PreAuthorize
-        // dto = maskPiiIfOfficer(dto, auth);
+        dto = maskPiiIfOfficer(dto, auth);
         return ResponseEntity.ok(dto);
     }
 

@@ -214,6 +214,8 @@ services:
 
 [text](https://github.com/aquasecurity/trivy/releases/)
 
+[Trivy](https://github.com/aquasecurity/trivy/releases/download/v0.70.0/trivy_0.70.0_windows-64bit.zip)
+
 ## Step 1 — Build the Insecure LMS Image
 
 ```bash

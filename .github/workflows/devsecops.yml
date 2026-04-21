@@ -113,6 +113,10 @@ jobs:
       - name: Load Docker image
         run: docker load < lms-image.tar.gz
 
+      - name: Install Trivy 
+        run: |
+          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+
       - name: Trivy — image CVE scan (blocks on CRITICAL)
         run: |
           trivy image \
